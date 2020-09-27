@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JAV快捷跳转
 // @namespace    video_search_through_javlibrary
-// @version      0.29
+// @version      0.30
 // @description  为部分JAV站点添加跳转功能，更方便地评分与搜索影片。
 // @author       SUZEMEF
 // @match        *://*.jav321.com/*
@@ -54,9 +54,9 @@ function getID(){
             javID = arr[0];
         }
         else if (/javdb/.test(loc)){
-            meta = window.parent.document.getElementsByTagName("meta");
-            let arr = meta[6].content.split(" ");
-            javID = arr[0];
+            meta = window.parent.document.getElementsByTagName("title");
+            let arr = meta[0].innerText.split(" ");
+            javID = arr[1];
         }
     }
     return javID;
